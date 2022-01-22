@@ -33,5 +33,6 @@ jobs:
       - name: Test
         run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+          webdriver-manager update
           npm run e2e -- --configuration=ci
           
