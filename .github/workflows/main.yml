@@ -39,7 +39,7 @@ jobs:
         env:
          GH_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
         run:
-          npm run ng -- deploy --base-href=/angular-website/ --name="GH Actions Deployment" --email=info@exo-movement.com
+          npm run deploy
           
 
 
