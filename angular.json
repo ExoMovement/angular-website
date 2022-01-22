@@ -130,7 +130,14 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "https://exomovement.github.io/angular-website/",
+            "repo": "https://github.com/ExoMovement/angular-website.git",
+            "branch": "gh-pages",
+            "name": "Automated Deployment with GH Pages",
+            "email": "info@exo-movement.com"
+          }
         }
       }
     }
