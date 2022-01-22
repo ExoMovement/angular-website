@@ -26,34 +26,28 @@ jobs:
         run: |
           npm run lint
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-          ###
-          # Configure Angular first?
-          ####
-          # npm run webdriver-update-ci
-          # npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js --webdriver-update=false
-          ####
-          
+          npm run webdriver-update-ci
+          npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js --webdriver-update=false
+
+      - name: Conventional Changelog Action
+        id: changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        with:
+          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
+          output-file: "false"
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        if: ${{ steps.changelog.outputs.skipped == 'false' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
+        with:
+          tag_name: ${{ steps.changelog.outputs.tag }}
+          release_name: ${{ steps.changelog.outputs.tag }}
+          body: ${{ steps.changelog.outputs.clean_changelog }}
+
       - name: Deploy
         env:
          GH_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
         run:
           npm run deploy
-          
-
-
-#      - name: Conventional Changelog Action
-#        id: changelog
-#        uses: TriPSs/conventional-changelog-action@v3
-#        with:
-#          github-token: ${{ secrets.TOKEN_GITHUB_ACTION }}
-#          output-file: "false"
-#
-#      - name: Create Release
-#        uses: actions/create-release@v1
-#        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB_ACTION }}
-#        with:
-#          tag_name: ${{ steps.changelog.outputs.tag }}
-#          release_name: ${{ steps.changelog.outputs.tag }}
-#          body: ${{ steps.changelog.outputs.clean_changelog }}
