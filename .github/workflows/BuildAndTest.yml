@@ -33,6 +33,10 @@ jobs:
       - name: Test
         run: |
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
-          npm run webdriver-update
-          npm run e2e -- --configuration=ci
-          
+
+      - name: Cypress Tests
+        uses: cypress-io/github-action@v1
+        with:
+          build: npm run build
+          start: npm start
+          wait-on: http://localhost:3030        
