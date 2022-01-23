@@ -3,6 +3,10 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../out-tsc/e2e",
+    "baseUrl": ".",
+    "paths": {
+        "@my-scope/shared/*": ["../shared/*"]
+    },
     "module": "commonjs",
     "target": "es2018",
     "types": [

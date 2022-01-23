@@ -3,6 +3,8 @@
 
 const { SpecReporter } = require('jasmine-spec-reporter');
 const tsConfig = require("./e2e/tsconfig.e2e.json");
+require('ts-node/register');
+require('tsconfig-paths/register');
 
 exports.config = {
   allScriptsTimeout: 11000,
