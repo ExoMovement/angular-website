@@ -4,6 +4,7 @@ import { AppPage } from './app.po';
 describe('workspace-project App', () => {
   let page: AppPage;
 
+  /*
   beforeEach(() => {
     page = new AppPage();
   });
@@ -20,4 +21,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+  */
 });
