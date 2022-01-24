@@ -7,6 +7,7 @@ describe('workspace-project App', () => {
   beforeEach(() => {
     page = new AppPage();
   });
+  /*
 
   it('should display welcome message', async () => {
     await page.navigateTo();
@@ -20,4 +21,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+  */
 });
