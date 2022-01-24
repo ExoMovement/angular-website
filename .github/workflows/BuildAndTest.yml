@@ -35,7 +35,7 @@ jobs:
           npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
 
       - name: Cypress Tests
-      - uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v2
         with:
           browser: chrome
           headless: true      
