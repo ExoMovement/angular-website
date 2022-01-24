@@ -38,4 +38,5 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
-          headless: true      
+          headless: true
+          wait-on: http://localhost:3030
